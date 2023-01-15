@@ -30,7 +30,7 @@ p {
 }
 
 .wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +44,7 @@ p {
 }
 
 .parallax {
-    min-width: 100vh;
+    min-height: 100vh;
 }
 
 .parallax__body {
@@ -101,59 +101,35 @@ p {
 }
 
 .images-parallax__house {
-    background: url("../img/house.svg") top / cover no-repeat;
+    background: url("../img/house.svg") top / contain no-repeat;
     top: 20%;
+    z-index: 3;
+}
+
+.content {
+    background-color: #333;
+    position: relative;
     z-index: 2;
 }
-/* =========================================================== */
-/* .full-screen {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    text-transform: uppercase;
-}
 
-.full-screen__text {
-    font-size: 18px;
-    letter-spacing: 5px;
-}
-
-.full-screen__body {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.parallax__images {
+.content::before {
+    pointer-events: none;
+    content: "";
     position: absolute;
-    width: 120%;
-    height: 120%;
-    top: -10%;
-    left: -10%;
-}
-
-.images-parallax__item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.images-parallax__clouds  {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;    
+    height: 300px;
+    transform: translate(0px, -100%);
+    background: linear-gradient(180deg, rgba(11, 29, 38, 0) 5%, #0b1d26 100%);
 }
 
-.images-parallax__house {
-    background: url("../img/house.svg");
-} */
+.content__title {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.content__text {
+    font-size: 16px;
+    line-height: 150%;
+}
