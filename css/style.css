@@ -1,20 +1,22 @@
-html {
-    box-sizing: border-box;
-}
-
 *,
 *::after,
 *::before {
-    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
-body {
-    height: 100%;
-    line-height: 1;
-    font-size: 14px;
-    background-color: #333;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
+a {
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
 }
 
 h1,
@@ -29,6 +31,15 @@ p {
     font-size: inherit;
 }
 
+html, body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
 .wrapper {
     min-height: 100%;
     display: flex;
@@ -38,7 +49,8 @@ p {
 }
 
 ._container {
-    max-width: 100%;
+    /* max-width: 100%; */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 50px 20px;
 }
@@ -84,6 +96,7 @@ p {
 }
 
 .images-parallax__clouds,
+.images-parallax__city,
 .images-parallax__house {
     position: absolute;
     width: 100%;
@@ -100,8 +113,14 @@ p {
     object-fit: cover;
 }
 
+.images-parallax__city {
+    background: url("../img/city.png") top / cover no-repeat;
+    bottom: 10%;
+    z-index: 2;
+}
+
 .images-parallax__house {
-    background: url("../img/house.svg") top / contain no-repeat;
+    background: url("../img/house.svg") top / cover no-repeat;
     top: 20%;
     z-index: 3;
 }
@@ -121,7 +140,7 @@ p {
     width: 100%;
     height: 300px;
     transform: translate(0px, -100%);
-    background: linear-gradient(180deg, rgba(11, 29, 38, 0) 5%, #0b1d26 100%);
+    /* background: linear-gradient(180deg, rgba(11, 29, 38, 0) 5%, #0b1d26 100%); */
 }
 
 .content__title {
