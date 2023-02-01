@@ -6,11 +6,13 @@ window.onload = function () {
   if (parallax) {
     const content = document.querySelector(".parallax__container");
     const clouds = document.querySelector(".images-parallax__clouds");
+    const city = document.querySelector(".images-parallax__city");
     const house = document.querySelector(".images-parallax__house");
 
     //   Коэффициенты
     const forClouds = 40;
-    const forHouse = 20;
+    const forCity = 20;
+    const forHouse = 10;
 
     //   Скорость анимации
     const speed = 0.05;
@@ -29,10 +31,13 @@ window.onload = function () {
       positionY = positionY + distY * speed;
 
       // Передаем стили
-      clouds.style.cssText = `transform: translate (${positionX / forClouds}%,${
-        positionY / forClouds
+      clouds.style.cssText = `transform: translate (${
+        positionX / forClouds
+      }%, ${positionY / forClouds}%);`;
+      city.style.cssText = `transform: translate (${positionX / forCity}%, ${
+        positionY / forCity
       }%);`;
-      house.style.cssText = `transform: translate (${positionX / forHouse}%,${
+      house.style.cssText = `transform: translate (${positionX / forHouse}%, ${
         positionY / forHouse
       }%);`;
 
@@ -73,10 +78,13 @@ window.onload = function () {
     function setParallaxItemsStyle(scrollTopProcent) {
       content.style.cssText = `transform: translate(0%, -${
         scrollTopProcent / 9
-      }%)`;
+      }%);`;
+      city.parentElement.style.cssText = `transform: translate(0%, -${
+        scrollTopProcent / 6
+      }%);`;
       house.parentElement.style.cssText = `transform: translate(0%, -${
         scrollTopProcent / 3
-      }%)`;
+      }%);`;
     }
   }
 };
